@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import member.MemberVO;
+
 public class DBClass {
 
 	private String url = "jdbc:oracle:thin:@210.108.48.214:1521:xe";
@@ -20,7 +22,18 @@ public class DBClass {
 		}
 }
 	public void insertMember(MemberVO m) { //1.가입기능
-		
+		String sql="insert into newst(id,pw,name,age) values(?,?,?)";
+		try {
+			Connection con=DriverManager.getConnection(url,id,pwd);
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setString(1, m.getId());
+			ps.setString(2, m.getPw());
+			ps.setString(3, m.getName());
+			ps.setInt(4, m.getAge());
+			ps.executeQuery();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void getMember() { //2.로그인기능
