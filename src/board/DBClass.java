@@ -6,7 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import member.MemberVO;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
 
 import member.MemberVO;
 
@@ -40,7 +43,34 @@ public class DBClass {
 	}
 	
 	public void getMember() { //2.로그인기능
-		
+		String sql="select * from newst";
+		try {
+			Connection con =DriverManager.getConnection(url, id, pwd);
+			PreparedStatement ps=con.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			rs.getString("id");
+			rs.getString("id");
+			HashMap map=new HashMap<>();
+			while(rs.next()) {
+			map.put(rs.getString("id"),rs.getString("id"));
+			}
+			Scanner input=new Scanner(System.in);
+			System.out.println("아이디 입력");
+			String id=input.next();
+			if(map.containsKey(id)) {
+				System.out.println("비밀번호 입력");
+				String pw=input.next();
+				if(map.keySet().equals(pw)) {
+					System.out.println("로그인되었습니다.");
+				}else {
+					System.out.println("비밀번호가 틀립니다.");
+				}
+			}else {
+				System.out.println("아이디가 틀립니다.");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public int deleteMember(String id) { //3.탈퇴 기능

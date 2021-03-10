@@ -24,7 +24,9 @@ public class BoardMainClass {
 				m.setAge(input.nextInt());
 				db.insertMember(m);
 				break;
-			case 2:break;
+			case 2:
+				db.getMember();
+				break;
 			case 3:
 				System.out.print("탈퇴 할 회원 ID를 입력 : ");
 				String id = input.next();
@@ -34,7 +36,6 @@ public class BoardMainClass {
 				}else {
 					System.out.println("삭제 중 문제가 발생했습니다.");
 				}
-				break;
 			case 4:break;
 			case 5:
 				System.out.println("수정 할 글 번호 입력 : ");
