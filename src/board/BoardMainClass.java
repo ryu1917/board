@@ -13,7 +13,17 @@ public class BoardMainClass {
 		while(true) {
 			int sel=input.nextInt();
 			switch(sel) {
-			case 1:break;
+			case 1:
+				System.out.print("ID 입력 : ");
+				m.setId(input.next());
+				System.out.print("PW 입력 : ");
+				m.setPw(input.next());
+				System.out.print("이름 입력 : ");
+				m.setName(input.next());
+				System.out.print("나이 입력 : ");
+				m.setAge(input.nextInt());
+				db.insertMember(m);
+				break;
 			case 2:break;
 			case 3:
 				System.out.print("탈퇴 할 회원 ID를 입력 : ");
