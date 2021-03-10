@@ -87,10 +87,19 @@ public class DBClass {
 	}
 	
 	public int insertBoard(BoardVO b) { //4.글쓰기 기능
+		String sql = "INSERT INTO board VALUES(B_SEQ.NEXTVAL,?,?,?)";
 		int result = 0;
-		
+		try {
+			Connection con = DriverManager.getConnection(url,id,pwd);
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, b.getTitle());
+			ps.setString(2, b.getWriter());
+			ps.setString(3, b.getContent());
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return result;
-				
 	}
 	
 	public int modifyBoard(BoardVO b) { //5.글 수정 기능
@@ -113,7 +122,15 @@ public class DBClass {
 	}
 	
 	public int deleteBoard(int num) { //6.글 삭제 기능
+		String sql = "DELETE FROM board WHERE num = "+num;
 		int result =0;
+		try {
+			Connection con = DriverManager.getConnection(url,id,pwd);
+			PreparedStatement ps = con.prepareStatement(sql);
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return result;
 	}
 }

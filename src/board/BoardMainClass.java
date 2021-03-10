@@ -38,7 +38,15 @@ public class BoardMainClass {
 				}else {
 					System.out.println("삭제 중 문제가 발생했습니다.");
 				}
-			case 4:break;
+			case 4:
+				System.out.print("제목 : ");
+				bo.setTitle(input.next());
+				System.out.print("작성자 : ");
+				bo.setWriter(input.next());
+				System.out.print("내용 : ");
+				bo.setContent(input.next());
+				db.insertBoard(bo);
+				break;
 			case 5:
 				System.out.println("수정 할 글 번호 입력 : ");
 				bo.setNum(input.nextInt());
@@ -57,7 +65,10 @@ public class BoardMainClass {
 				}
 				
 				break;
-			case 6:break;
+			case 6:
+				System.out.println("삭제할 글 번호를 입력해주세요");
+				db.deleteBoard(input.nextInt());
+				break;
 			
 			}
 			
