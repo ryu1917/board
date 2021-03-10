@@ -5,11 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-
 import java.util.HashMap;
 import java.util.Scanner;
-
 
 import member.MemberVO;
 
@@ -28,7 +25,7 @@ public class DBClass {
 		}
 }
 	public void insertMember(MemberVO m) { //1.가입기능
-		String sql="insert into newst(id,pw,name,age) values(?,?,?,?)";
+		String sql="insert into member(id,pw,name,age) values(?,?,?,?)";
 		try {
 			Connection con=DriverManager.getConnection(url,id,pwd);
 			PreparedStatement ps=con.prepareStatement(sql);
@@ -43,7 +40,7 @@ public class DBClass {
 	}
 	
 	public void getMember() { //2.로그인기능
-		String sql="select * from newst";
+		String sql="select * from member";
 		try {
 			Connection con =DriverManager.getConnection(url, id, pwd);
 			PreparedStatement ps=con.prepareStatement(sql);
