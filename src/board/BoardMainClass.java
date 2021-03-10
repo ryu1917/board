@@ -2,6 +2,8 @@ package board;
 
 import java.util.Scanner;
 
+import member.MemberVO;
+
 public class BoardMainClass {
 	public static void main(String[] args) {
 		Scanner input=new Scanner(System.in);
@@ -12,7 +14,13 @@ public class BoardMainClass {
 			int sel=input.nextInt();
 			switch(sel) {
 			case 1:break;
-			case 2:break;
+			case 2:
+				
+				db.getMember();
+			
+				
+				
+				break;
 			case 3:break;
 			case 4:break;
 			case 5:break;
