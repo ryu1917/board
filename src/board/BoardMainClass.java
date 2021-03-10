@@ -20,7 +20,7 @@ public class BoardMainClass {
 				m.setPw(input.next());
 				System.out.print("이름 입력 : ");
 				m.setName(input.next());
-				System.out.println("나이 입력 : ");
+				System.out.print("나이 입력 : ");
 				m.setAge(input.nextInt());
 				db.insertMember(m);
 				break;
