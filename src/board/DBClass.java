@@ -28,7 +28,7 @@ public class DBClass {
 		}
 }
 	public void insertMember(MemberVO m) { //1.가입기능
-		String sql="insert into newst(id,pw,name,age) values(?,?,?)";
+		String sql="insert into newst(id,pw,name,age) values(?,?,?,?)";
 		try {
 			Connection con=DriverManager.getConnection(url,id,pwd);
 			PreparedStatement ps=con.prepareStatement(sql);

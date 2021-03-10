@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import member.MemberVO;
 
+
+
 public class BoardMainClass {
 	public static void main(String[] args) {
 		Scanner input=new Scanner(System.in);
