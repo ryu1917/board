@@ -16,7 +16,7 @@ public class DBClass {
 	private String id = "six";
 	private String pwd = "six1234";
 	
-	public void DBClass() {
+	public DBClass() {
 		 try {
 			 //오라클 관련된 기능을 사용하기 위해서는 제일 먼저 처리해줘야한다.
 			Class.forName("oracle.jdbc.driver.OracleDriver");
