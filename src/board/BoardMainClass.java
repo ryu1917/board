@@ -90,20 +90,8 @@ public class BoardMainClass {
 					break;
 				case 4:
 					System.out.print("삭제할 글 번호 : ");
-					BoardVO deleteInfo = service.show(input.nextInt());
-					//삭제할 게시글 작성자와 로그인 정보가 일치할때
-					if(deleteInfo.getWriter().equals(loginData.getId())) {
-						System.out.println("삭제정보) 글번호 : "+deleteInfo.getNum()+"제목 : "+deleteInfo.getTitle());
-						System.out.println("정말로 삭제하시겠습니까? (Y/N)");
-						if(input.next().toUpperCase().equals("Y")) {
-							service.delete(deleteInfo);
-							System.out.println("게시글이 삭제되었습니다.");
-						}else {
-							System.out.println("게시글 삭제가 취소되었습니다.");
-						}
-					}else {
-						System.out.print("글 작성자가 아닙니다.");
-					}
+					int delNum = input.nextInt();
+					service.delete(delNum, loginData.getId(), input);
 					break;
 				case 5:
 					System.out.println("로그아웃 되었습니다.");

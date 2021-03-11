@@ -133,4 +133,22 @@ public class DBClass {
 		}
 		return result;
 	}
+	
+	//게시글 객체 하나 가져오기 DAO 기능
+	public BoardVO getBoard(int num) {
+		String sql = "SELECT * FROM board WHERE num = "+num;
+		BoardVO result = new BoardVO();
+		try {
+			Connection con = DriverManager.getConnection(sql, id, pwd);
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			result.setNum(rs.getInt("num"));
+			result.setTitle(rs.getString("title"));
+			result.setWriter(rs.getString("writer"));
+			result.setContent(rs.getString("content"));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

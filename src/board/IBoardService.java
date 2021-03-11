@@ -1,5 +1,7 @@
 package board;
 
+import java.util.Scanner;
+
 import member.MemberVO;
 
 public interface IBoardService {
@@ -33,7 +35,7 @@ public interface IBoardService {
 	void modify(BoardVO b);
 	
 	//게시글 삭제기능
-	void delete(BoardVO b);
+	void delete(int delNum, String loginId, Scanner input);
 	
 	//게시글 목록보기
 	void showList();
