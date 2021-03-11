@@ -1,4 +1,4 @@
-package board;
+ package board;
 
 import member.MemberVO;
 

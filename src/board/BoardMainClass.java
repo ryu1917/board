@@ -11,9 +11,9 @@ public class BoardMainClass {
 	public static void main(String[] args) {
 		//로그인 정보
 		MemberVO loginData = new MemberVO();
-		boolean isLogin = true;
+		boolean isLogin = false;
 		
-		Scanner input=new Scanner(System.in);
+		Scanner input = new Scanner(System.in);
 		IBoardService service = new BoardService();
 		while(true) {
 			if(!isLogin) {
